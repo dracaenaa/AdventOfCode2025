@@ -4,14 +4,12 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.Write("Enter positive numeric day to run, enter 'exit' to exit: ");
-        var dayToRun = Console.ReadLine();
+        var dayToRun = Helpers.GetUserInput();
         while (!string.Equals(dayToRun?.ToLower(), "exit"))
         {
-            Helpers.CheckInputAndRunDaySolution(dayToRun);
+            Helpers.RunDaySolution(dayToRun);
 
-            Console.Write("Enter positive numeric day to run, enter 'exit' to exit: ");
-            dayToRun = Console.ReadLine();
+            dayToRun = Helpers.GetUserInput();
         }
 
     }

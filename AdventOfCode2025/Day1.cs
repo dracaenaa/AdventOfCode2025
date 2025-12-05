@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode2025;
 
-public class Day1
+public class Day1 : IDay
 {
     public static void RunSolution()
     {

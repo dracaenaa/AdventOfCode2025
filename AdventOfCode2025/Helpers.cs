@@ -2,7 +2,7 @@
 
 public class Helpers
 {
-    public static void CheckInputAndRunDaySolution(string dayToRun)
+    public static void RunDaySolution(string dayToRun)
     {
         if (int.TryParse(dayToRun, out var day))
         {
@@ -19,5 +19,12 @@ public class Helpers
         {
             Console.WriteLine("Input not valid, please enter a numeric value.");
         }
+    }
+
+    public static string GetUserInput()
+    {
+        Console.Write("Enter positive numeric day to run, enter 'exit' to exit: ");
+
+        return Console.ReadLine() ?? "";
     }
 }
