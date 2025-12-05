@@ -32,7 +32,7 @@ public class Day1 : IDay
                 password++;
             }
         }
-        Console.WriteLine("Part 1 Solution: " + password);
+        Console.WriteLine("Part 1: Password: " + password);
     }
 
     private static void Part2(string[] fileInput, int dialLocation, int password)
@@ -67,7 +67,7 @@ public class Day1 : IDay
                 }
             }
         }
-        Console.WriteLine("Part 2 Solution: " + password);
+        Console.WriteLine("Part 2: Password: " + password);
     }
 }  
 
