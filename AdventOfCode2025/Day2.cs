@@ -4,8 +4,7 @@ public class Day2 : IDay
 {
     public static void RunSolution()
     {
-        //var fileInput = File.ReadAllText("../../../productIds.txt").Split(',');
-        var fileInput = File.ReadAllText("../../../exampleProductIds.txt").Split(',');
+        var fileInput = File.ReadAllText("../../../productIds.txt").Split(',');
 
         Part1(fileInput);
         Part2(fileInput);
@@ -45,25 +44,61 @@ public class Day2 : IDay
         long currentId;
         string currentIdString;
         long lastId;
+        int currentIndex;
 
         foreach (var line in fileInput)
         {
             currentIdString = line.Split('-')[0];
             currentId = long.Parse(currentIdString);
             lastId = long.Parse(line.Split("-")[1]);
+            currentIndex = 1;
 
             while (currentId <= lastId)
             {
-                if (currentIdString.Substring(0, currentIdString.Length / 2).Contains(currentIdString.Substring(currentIdString.Length / 2)))
+                if (currentIdString.Length == 1)
                 {
-                    invalidIdsTotal += currentId;
+                    currentId++;
+                    currentIdString = currentId.ToString();
+                    continue;
                 }
 
-                currentId++;
-                currentIdString = currentId.ToString();
+                var list = GetListOfStrings(currentIdString, currentIndex);
+                
+                if (AreAllInListEmpty(list))
+                {
+                    invalidIdsTotal += currentId;
+                    currentId++;
+                    currentIdString = currentId.ToString();
+                    currentIndex = 1;
+                    continue;
+                }
+
+                if (currentIndex >= currentIdString.Length / 2)
+                {
+                    currentId++;
+                    currentIdString = currentId.ToString();
+                    currentIndex = 1;
+                }
+                else
+                {
+                    currentIndex++;
+                }
             }
         }
 
         Console.WriteLine("Part 2: Total of invalid product IDs: " + invalidIdsTotal);
+    }
+
+    private static string[] GetListOfStrings(string input, int index)
+    {
+        return input.Split(input.Substring(0, index));
+    }
+
+    private static bool AreAllInListEmpty(string[] list)
+    {
+        return string.IsNullOrEmpty(list.FirstOrDefault((item) =>
+        {
+            return item != "";
+        }));
     }
 }
