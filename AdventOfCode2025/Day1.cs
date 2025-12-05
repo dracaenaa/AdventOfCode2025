@@ -9,14 +9,20 @@ public class Day1 : IDay
         var dialLocation = 50;
         var password = 0;
 
+        Part1(fileInput, dialLocation, password);
+        Part2(fileInput, dialLocation, password);
+    }
+
+    private static void Part1(string[] fileInput, int dialLocation, int password)
+    {
         foreach (var line in fileInput)
         {
             dialLocation += line[0] == 'L' ? (int.Parse(line.Substring(1)) * -1) : int.Parse(line.Substring(1));
-            
+
             while (dialLocation < 0)
             {
                 dialLocation = 100 + dialLocation;
-            } 
+            }
             while (dialLocation > 99)
             {
                 dialLocation -= 100;
@@ -26,7 +32,42 @@ public class Day1 : IDay
                 password++;
             }
         }
-        Console.WriteLine("Solution: " + password);
+        Console.WriteLine("Part 1 Solution: " + password);
+    }
+
+    private static void Part2(string[] fileInput, int dialLocation, int password)
+    {
+        foreach (var line in fileInput)
+        {
+            dialLocation += line[0] == 'L' ? (int.Parse(line.Substring(1)) * -1) : int.Parse(line.Substring(1));
+
+            if (dialLocation == 0)
+            {
+                password++;
+            }
+            else if (dialLocation > 99 || dialLocation < 0)
+            {
+                while (dialLocation < 0)
+                {
+                    if (dialLocation != (int.Parse(line.Substring(1)) * -1))
+                    {
+                        password++;
+                    }
+                    dialLocation = 100 + dialLocation;
+
+                    if (dialLocation == 0)
+                    {
+                        password++;
+                    }
+                }
+                while (dialLocation > 99)
+                {
+                    dialLocation -= 100;
+                    password++;
+                }
+            }
+        }
+        Console.WriteLine("Part 2 Solution: " + password);
     }
 }  
 
