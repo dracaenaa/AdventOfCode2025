@@ -17,8 +17,11 @@ public class Helpers
                 case 3:
                     Day3.RunSolution();
                     break;
+                case 4:
+                    Day4.RunSolution();
+                    break;
                 default:
-                    Console.WriteLine("Solution not available, days complete: 1 - 3");
+                    Console.WriteLine("Solution not available, days complete: 1 - 4");
                     break;
             }
         } else
