@@ -4,7 +4,7 @@ public class Day2 : IDay
 {
     public static void RunSolution()
     {
-        var fileInput = File.ReadAllText("../../../productIds.txt").Split(',');
+        var fileInput = Helpers.ReadFile("../../../productIds.txt").FirstOrDefault()?.Split(',');
 
         Part1(fileInput);
         Part2(fileInput);

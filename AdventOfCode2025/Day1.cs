@@ -4,7 +4,7 @@ public class Day1 : IDay
 {
     public static void RunSolution()
     {
-        var fileInput = File.ReadAllLines("../../../entranceCombination.txt");
+        var fileInput = Helpers.ReadFile("../../../entranceCombination.txt");
 
         var dialLocation = 50;
         var password = 0;

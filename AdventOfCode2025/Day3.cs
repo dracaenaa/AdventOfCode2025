@@ -4,7 +4,7 @@ public class Day3 : IDay
 {
     public static void RunSolution()
     {
-        var fileInput = File.ReadAllLines("../../../joltages.txt");
+        var fileInput = Helpers.ReadFile("../../../joltages.txt");
 
         Part1(fileInput);
         Part2(fileInput);

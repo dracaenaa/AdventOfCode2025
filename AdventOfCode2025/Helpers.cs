@@ -23,8 +23,11 @@ public class Helpers
                 case 5:
                     Day5.RunSolution();
                     break;
+                case 6:
+                    Day6.RunSolution();
+                    break;
                 default:
-                    Console.WriteLine("Solution not available, days complete: 1 - 5");
+                    Console.WriteLine("Solution not available, days available: 1 - 6");
                     break;
             }
         } else
@@ -38,5 +41,10 @@ public class Helpers
         Console.Write("Enter positive numeric day to run, enter 'exit' to exit: ");
 
         return Console.ReadLine() ?? "";
+    }
+
+    public static string[] ReadFile(string path) 
+    {
+        return File.ReadAllLines(path);
     }
 }

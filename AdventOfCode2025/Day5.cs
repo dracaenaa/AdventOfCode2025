@@ -7,8 +7,7 @@ public class Day5 : IDay
 {
     public static void RunSolution()
     {
-        var fileInput = File.ReadAllLines("../../../ingredientIds.txt");
-        //var fileInput = File.ReadAllLines("../../../sampleIngredientIds.txt");
+        var fileInput = Helpers.ReadFile("../../../ingredientIds.txt");
 
         var ranges = new List<(double, double)>();
         double[] ingredientsToCheck = [];
