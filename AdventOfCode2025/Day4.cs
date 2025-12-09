@@ -4,7 +4,7 @@ public class Day4 : IDay
 {
     public static void RunSolution()
     {
-        var fileInput = Helpers.ReadFile("../../../paperRolls.txt");
+        var fileInput = Helpers.ReadFile("../../../fileInputs/paperRolls.txt");
 
         Part1(fileInput);
         Part2(fileInput);
